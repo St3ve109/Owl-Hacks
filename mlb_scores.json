@@ -1,0 +1,291 @@
+{
+  "date": "2025-09-27",
+  "total_games": 15,
+  "games": [
+    {
+      "game_id": "401697308",
+      "date": "2025-09-27T17:05Z",
+      "status": "STATUS_FINAL",
+      "home_team": {
+        "name": "New York Yankees",
+        "abbreviation": "NYY",
+        "score": "6",
+        "record": "93-68"
+      },
+      "away_team": {
+        "name": "Baltimore Orioles",
+        "abbreviation": "BAL",
+        "score": "1",
+        "record": "75-86"
+      },
+      "venue": "Yankee Stadium",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697317",
+      "date": "2025-09-27T18:20Z",
+      "status": "STATUS_IN_PROGRESS",
+      "home_team": {
+        "name": "Chicago Cubs",
+        "abbreviation": "CHC",
+        "score": "3",
+        "record": "90-70"
+      },
+      "away_team": {
+        "name": "St. Louis Cardinals",
+        "abbreviation": "STL",
+        "score": "1",
+        "record": "78-82"
+      },
+      "venue": "Wrigley Field",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697314",
+      "date": "2025-09-27T19:07Z",
+      "status": "STATUS_IN_PROGRESS",
+      "home_team": {
+        "name": "Toronto Blue Jays",
+        "abbreviation": "TOR",
+        "score": "3",
+        "record": "92-68"
+      },
+      "away_team": {
+        "name": "Tampa Bay Rays",
+        "abbreviation": "TB",
+        "score": "0",
+        "record": "77-83"
+      },
+      "venue": "Rogers Centre",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697309",
+      "date": "2025-09-27T20:05Z",
+      "status": "STATUS_RAIN_DELAY",
+      "home_team": {
+        "name": "Washington Nationals",
+        "abbreviation": "WSH",
+        "score": "0",
+        "record": "65-95"
+      },
+      "away_team": {
+        "name": "Chicago White Sox",
+        "abbreviation": "CHW",
+        "score": "0",
+        "record": "59-101"
+      },
+      "venue": "Nationals Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697319",
+      "date": "2025-09-27T20:05Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "San Francisco Giants",
+        "abbreviation": "SF",
+        "score": "0",
+        "record": "79-81"
+      },
+      "away_team": {
+        "name": "Colorado Rockies",
+        "abbreviation": "COL",
+        "score": "0",
+        "record": "43-117"
+      },
+      "venue": "Oracle Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697310",
+      "date": "2025-09-27T20:10Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Boston Red Sox",
+        "abbreviation": "BOS",
+        "score": "0",
+        "record": "88-72"
+      },
+      "away_team": {
+        "name": "Detroit Tigers",
+        "abbreviation": "DET",
+        "score": "0",
+        "record": "86-74"
+      },
+      "venue": "Fenway Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697312",
+      "date": "2025-09-27T20:10Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Miami Marlins",
+        "abbreviation": "MIA",
+        "score": "0",
+        "record": "78-82"
+      },
+      "away_team": {
+        "name": "New York Mets",
+        "abbreviation": "NYM",
+        "score": "0",
+        "record": "82-78"
+      },
+      "venue": "loanDepot park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697311",
+      "date": "2025-09-27T22:05Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Philadelphia Phillies",
+        "abbreviation": "PHI",
+        "score": "0",
+        "record": "95-65"
+      },
+      "away_team": {
+        "name": "Minnesota Twins",
+        "abbreviation": "MIN",
+        "score": "0",
+        "record": "69-91"
+      },
+      "venue": "Citizens Bank Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697313",
+      "date": "2025-09-27T23:15Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL",
+        "score": "0",
+        "record": "75-85"
+      },
+      "away_team": {
+        "name": "Pittsburgh Pirates",
+        "abbreviation": "PIT",
+        "score": "0",
+        "record": "70-90"
+      },
+      "venue": "Truist Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697315",
+      "date": "2025-09-27T23:15Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Cleveland Guardians",
+        "abbreviation": "CLE",
+        "score": "0",
+        "record": "86-74"
+      },
+      "away_team": {
+        "name": "Texas Rangers",
+        "abbreviation": "TEX",
+        "score": "0",
+        "record": "81-79"
+      },
+      "venue": "Progressive Field",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697316",
+      "date": "2025-09-27T23:15Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Milwaukee Brewers",
+        "abbreviation": "MIL",
+        "score": "0",
+        "record": "96-64"
+      },
+      "away_team": {
+        "name": "Cincinnati Reds",
+        "abbreviation": "CIN",
+        "score": "0",
+        "record": "82-78"
+      },
+      "venue": "American Family Field",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697318",
+      "date": "2025-09-28T00:40Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "San Diego Padres",
+        "abbreviation": "SD",
+        "score": "0",
+        "record": "88-72"
+      },
+      "away_team": {
+        "name": "Arizona Diamondbacks",
+        "abbreviation": "ARI",
+        "score": "0",
+        "record": "80-80"
+      },
+      "venue": "Petco Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697320",
+      "date": "2025-09-28T01:38Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Los Angeles Angels",
+        "abbreviation": "LAA",
+        "score": "0",
+        "record": "72-88"
+      },
+      "away_team": {
+        "name": "Houston Astros",
+        "abbreviation": "HOU",
+        "score": "0",
+        "record": "85-75"
+      },
+      "venue": "Angel Stadium",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401697322",
+      "date": "2025-09-28T01:40Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Seattle Mariners",
+        "abbreviation": "SEA",
+        "score": "0",
+        "record": "90-70"
+      },
+      "away_team": {
+        "name": "Los Angeles Dodgers",
+        "abbreviation": "LAD",
+        "score": "0",
+        "record": "91-69"
+      },
+      "venue": "T-Mobile Park",
+      "weather": "N/A"
+    },
+    {
+      "game_id": "401764598",
+      "date": "2025-09-28T02:05Z",
+      "status": "STATUS_SCHEDULED",
+      "home_team": {
+        "name": "Athletics",
+        "abbreviation": "ATH",
+        "score": "0",
+        "record": "76-84"
+      },
+      "away_team": {
+        "name": "Kansas City Royals",
+        "abbreviation": "KC",
+        "score": "0",
+        "record": "80-80"
+      },
+      "venue": "Sutter Health Park",
+      "weather": "N/A"
+    }
+  ]
+}
