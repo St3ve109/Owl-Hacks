@@ -7,14 +7,40 @@
 </head>
 <body>
     <h1>Test</h1>
-    <img src="Assets/108.svg" alt="Team 108 Logo">
-    <img src="Assets/109.svg" alt="Team 109 Logo">
-    <img src="Assets/110.svg" alt="Team 110 Logo">
-    <img src="Assets/111.svg" alt="Team 111 Logo">
-    <img src="Assets/112.svg" alt="Team 112 Logo">
-    <img src="Assets/113.svg" alt="Team 113 Logo">
-    <img src="Assets/114.svg" alt="Team 114 Logo">
-    <img src="Assets/115.svg" alt="Team 115 Logo">
+    <div class="teams-container">
+        <div class="team">
+            <img src="Assets/108.svg" alt="Team 108 Logo">
+            <div class="team-name">Team 108</div>
+        </div>
+        <div class="team">
+            <img src="Assets/109.svg" alt="Team 109 Logo">
+            <div class="team-name">Team 109</div>
+        </div>
+        <div class="team">
+            <img src="Assets/110.svg" alt="Team 110 Logo">
+            <div class="team-name">Team 110</div>
+        </div>
+        <div class="team">
+            <img src="Assets/111.svg" alt="Team 111 Logo">
+            <div class="team-name">Team 111</div>
+        </div>
+        <div class="team">
+            <img src="Assets/112.svg" alt="Team 112 Logo">
+            <div class="team-name">Team 112</div>
+        </div>
+        <div class="team">
+            <img src="Assets/113.svg" alt="Team 113 Logo">
+            <div class="team-name">Team 113</div>
+        </div>
+        <div class="team">
+            <img src="Assets/114.svg" alt="Team 114 Logo">
+            <div class="team-name">Team 114</div>
+        </div>
+        <div class="team">
+            <img src="Assets/115.svg" alt="Team 115 Logo">
+            <div class="team-name">Team 115</div>
+        </div>
+    </div>
 </body>
 
     <style>
@@ -28,10 +54,29 @@
             margin-top: 20%;
             font-size: 4em;
         }
-        img {
-            margin: 10px;
+        .teams-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 10vw;
-            height: 10vh;
+        }
+        .team img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .team-name {
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
         }
     </style>
 </html>
