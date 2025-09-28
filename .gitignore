@@ -42,3 +42,8 @@ next-env.d.ts
 
 # cache directory
 /.cache
+
+# amplify
+.amplify
+amplify_outputs*
+amplifyconfiguration*
