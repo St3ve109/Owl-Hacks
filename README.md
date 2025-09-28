@@ -18,6 +18,13 @@ A modern web application that displays today's MLB games with real-time FanDuel 
 - American odds format (+150, -200, etc.)
 - Visual FanDuel branding
 
+### 🤖 AI-Powered Game Predictions
+- Google Gemini AI integration for game analysis
+- Intelligent predictions with confidence scores
+- Detailed reasoning and key factors
+- Real-time analysis of team performance, odds, and matchups
+- Expandable prediction details for deeper insights
+
 ### 🔄 Smart Game Matching
 - Comprehensive team mapping between APIs
 - Multiple matching strategies:
@@ -42,6 +49,7 @@ A modern web application that displays today's MLB games with real-time FanDuel 
    ```env
    master_key=YOUR_SPORTRADAR_API_KEY
    odds_api_key=YOUR_ODDS_API_KEY
+   GOOGLE_GEMINI_API_KEY=YOUR_GOOGLE_GEMINI_API_KEY
    ```
 
 ### Installation
@@ -81,6 +89,12 @@ A modern web application that displays today's MLB games with real-time FanDuel 
 - Markets: Head-to-head (h2h)
 - Region: US
 
+### Google Gemini AI
+- Model: `gemini-1.5-flash`
+- Provides: AI-powered game predictions and analysis
+- Features: Confidence scores, detailed reasoning, key factors
+- Integration: Real-time analysis of team data and betting odds
+
 ## Architecture
 
 ### Team Mapping System
@@ -113,15 +127,17 @@ gemline/
 │   ├── app/
 │   │   ├── api/
 │   │   │   └── mlb/
-│   │   │       └── schedule/     # API endpoint for fetching games + odds
+│   │   │       ├── schedule/     # API endpoint for fetching games + odds
+│   │   │       └── predictions/  # API endpoint for AI game predictions
 │   │   ├── page.tsx              # Main page component
 │   │   └── layout.tsx            # App layout
 │   ├── components/
-│   │   └── GameCard.tsx          # Individual game card with odds display
+│   │   └── GameCard.tsx          # Individual game card with odds and AI predictions
 │   └── lib/
 │       ├── mlb-team-mapping.ts   # Team mapping between APIs
 │       ├── odds-api.ts           # The Odds API integration
-│       └── schedule-cache.ts     # Caching system
+│       ├── schedule-cache.ts     # Caching system
+│       └── gemini-api.ts         # Google Gemini AI integration
 ├── public/
 │   └── fanduel.png              # FanDuel logo
 └── package.json
@@ -135,9 +151,17 @@ gemline/
 - Shows implied probability percentage
 - FanDuel branding with official logo
 
+### AI Predictions
+- Automatic predictions for scheduled games
+- Confidence scores and detailed analysis
+- Expandable reasoning and key factors
+- Integration with betting odds for enhanced insights
+- Loading states and error handling
+
 ### Error Handling
 - Graceful fallback when odds unavailable
 - Continues showing schedule even if odds API fails
+- AI predictions gracefully degrade when Gemini API is unavailable
 - User-friendly error messages
 - Retry mechanisms
 
@@ -160,7 +184,8 @@ node test-odds-integration.js
 - [ ] Additional sportsbooks beyond FanDuel
 - [ ] Spread and total betting lines
 - [ ] Historical odds tracking
-- [ ] AI-powered game predictions
+- [x] AI-powered game predictions
+- [ ] Enhanced AI analysis with historical data
 - [ ] User accounts and bet tracking
 - [ ] Mobile app version
 
@@ -173,4 +198,5 @@ MIT
 - Sportradar for MLB data
 - The Odds API for betting odds
 - FanDuel for odds provision
+- Google Gemini for AI-powered predictions
 - Next.js team for the framework

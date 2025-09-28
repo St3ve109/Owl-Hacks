@@ -1,6 +1,16 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+interface GamePrediction {
+  homeTeam: string;
+  awayTeam: string;
+  prediction: string;
+  confidence: number;
+  reasoning: string;
+  keyFactors: string[];
+}
 
 interface GameCardProps {
   game: {
@@ -36,6 +46,10 @@ interface GameCardProps {
 }
 
 export default function GameCard({ game }: GameCardProps) {
+  const [prediction, setPrediction] = useState<GamePrediction | null>(null);
+  const [loadingPrediction, setLoadingPrediction] = useState(false);
+  const [showPrediction, setShowPrediction] = useState(false);
+
   const gameDate = new Date(game.scheduled);
   const timeString = gameDate.toLocaleTimeString('en-US', { 
     hour: 'numeric', 
@@ -45,12 +59,50 @@ export default function GameCard({ game }: GameCardProps) {
   
   const isLive = game.status === 'inprogress';
   const isFinal = game.status === 'closed' || game.status === 'complete';
+  const isScheduled = game.status === 'scheduled';
   
   const getStatusDisplay = () => {
     if (isLive) return 'LIVE';
     if (isFinal) return 'FINAL';
     return timeString;
   };
+
+  const fetchPrediction = async () => {
+    if (!isScheduled || prediction) return;
+    
+    setLoadingPrediction(true);
+    try {
+      const response = await fetch('/api/mlb/predictions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          homeTeam: game.homeTeam.name,
+          awayTeam: game.awayTeam.name,
+          homeOdds: game.fanduelOdds ? parseFloat(game.fanduelOdds.homeOdds.replace(/[+]/g, '')) : undefined,
+          awayOdds: game.fanduelOdds ? parseFloat(game.fanduelOdds.awayOdds.replace(/[+]/g, '')) : undefined,
+          scheduled: game.scheduled,
+          venue: game.venue?.name
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPrediction(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch prediction:', error);
+    } finally {
+      setLoadingPrediction(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isScheduled) {
+      fetchPrediction();
+    }
+  }, [isScheduled]);
 
   return (
     <div 
@@ -203,6 +255,78 @@ export default function GameCard({ game }: GameCardProps) {
                 </div>
               </div>
             </div>
+          </div>
+        )}
+
+        {/* AI Prediction Section */}
+        {isScheduled && (prediction || loadingPrediction) && (
+          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                <span className="text-xs font-medium text-purple-600 dark:text-purple-400">AI Prediction</span>
+              </div>
+              {prediction && (
+                <button
+                  onClick={() => setShowPrediction(!showPrediction)}
+                  className="text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+                >
+                  {showPrediction ? 'Hide Details' : 'Show Details'}
+                </button>
+              )}
+            </div>
+
+            {loadingPrediction ? (
+              <div className="flex items-center justify-center py-4">
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-500"></div>
+                <span className="ml-2 text-xs text-gray-500 dark:text-gray-400">Analyzing game...</span>
+              </div>
+            ) : prediction ? (
+              <div className="space-y-3">
+                {/* Prediction Summary */}
+                <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-lg p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-medium text-gray-900 dark:text-white">
+                      {prediction.prediction}
+                    </span>
+                    <div className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-xs text-gray-600 dark:text-gray-400">
+                        {prediction.confidence}% confidence
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Detailed Analysis */}
+                {showPrediction && (
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Analysis</h4>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {prediction.reasoning}
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Key Factors</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {prediction.keyFactors.map((factor, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-400 rounded-full"
+                          >
+                            {factor}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : null}
           </div>
         )}
 
