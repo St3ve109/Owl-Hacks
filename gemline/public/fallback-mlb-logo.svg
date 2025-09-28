@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="24" fill="#F4F6F8"/>
+  <circle cx="128" cy="128" r="84" fill="white" stroke="#D1D5DB" stroke-width="6"/>
+  <!-- seams -->
+  <path d="M64 88 C96 112, 96 144, 64 168" stroke="#EF4444" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M192 88 C160 112, 160 144, 192 168" stroke="#EF4444" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- stitches left -->
+  <path d="M72 98 l14 10" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M68 112 l18 10" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M66 127 l18 8" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M68 142 l16 8" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M72 156 l12 6" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <!-- stitches right -->
+  <path d="M184 98 l-14 10" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M188 112 l-18 10" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M190 127 l-18 8" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M188 142 l-16 8" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M184 156 l-12 6" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+</svg>
